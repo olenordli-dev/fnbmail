@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="no"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width">
+<meta name="robots" content="noindex"><title>Åpner i Outlook</title></head>
+<body style="font:16px/1.5 system-ui,sans-serif;padding:40px;color:#222">
+<p id="m">Åpner i Outlook …</p>
+<p><a id="a" href="#">Åpne manuelt</a></p>
+<script>
+var raw=location.hash.slice(1),q=raw;
+try{q=decodeURIComponent(raw)}catch(e){}
+var u='fnbmail://s/'+encodeURIComponent(q);
+document.getElementById('a').href=u;
+if(q){location.href=u;setTimeout(function(){window.close()},1500)}
+else{document.getElementById('m').textContent='Mangler emne i lenken.'}
+</script></body></html>
